@@ -93,6 +93,21 @@ function promptValidSituation() {
     return situation
 }
 
+// Aqui anotamos os tipos da função callback
+// para facilitar a sua implementação futura
+function promptValidPlanet(callback: (planet: Planet) => void) {
+    const planetName = prompt('Informe o nome do planeta:')
+    const planet = findPlanet(planetName)
+
+    // Aqui podemos reparar que o VS Code nos
+    // avisa sobre o tipo Union de planet
+    if (planet) {
+        callback(planet)
+    } else {
+        alert('Planeta não encontrado! Retornando ao menu...')
+    }
+}
+
 // Opções do Menu
 function firstMenuOption() {
     const name = prompt('Informe o nome do planeta:')
